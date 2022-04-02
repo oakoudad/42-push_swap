@@ -6,7 +6,7 @@
 /*   By: oakoudad <oakoudad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 15:01:33 by oakoudad          #+#    #+#             */
-/*   Updated: 2022/04/02 17:21:01 by oakoudad         ###   ########.fr       */
+/*   Updated: 2022/04/02 18:06:25 by oakoudad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,8 +67,7 @@ void	check_args(t_data *data, int c, char **v)
 		if (!join)
 			exit(1);
 	}
-	data->s_split = ft_split(join, ' ');
-	data->len = i - 1;
+	data->s_split = ft_split(join, ' ', &(data->len));
 	data->i_split = malloc(sizeof(long) * i);
 	if (!data->i_split)
 		put_error("", data);
