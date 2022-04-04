@@ -52,4 +52,4 @@ fclean:
 
 re : fclean all
 
-.PHONY: fclean clean all bonus
+.PHONY: fclean clean all bonus checker push_swap
