@@ -6,7 +6,7 @@
 /*   By: oakoudad <oakoudad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 10:45:17 by oakoudad          #+#    #+#             */
-/*   Updated: 2022/04/02 17:48:53 by oakoudad         ###   ########.fr       */
+/*   Updated: 2022/04/02 21:07:44 by oakoudad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,8 @@ int	main(int c, char **v)
 	if (c == 1)
 		return (0);
 	checker(&data, c, v);
+	if (is_sorted(&data) == 0)
+		return (0);
 	if (create_list(&a, &data) == 0)
 	{
 		free_all(&a, &b, &data);

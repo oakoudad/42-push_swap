@@ -6,7 +6,7 @@
 /*   By: oakoudad <oakoudad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 11:38:34 by oakoudad          #+#    #+#             */
-/*   Updated: 2022/04/02 17:51:02 by oakoudad         ###   ########.fr       */
+/*   Updated: 2022/04/02 21:05:20 by oakoudad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int	check_duplicate(t_data *data)
 	return (1);
 }
 
-void	is_sorted(t_data *data)
+int	is_sorted(t_data *data)
 {
 	int	i;
 	int	j;
@@ -71,7 +71,18 @@ void	is_sorted(t_data *data)
 		i++;
 	}
 	if (j == data->len - 1)
-		put_error("", data);
+	{
+		i = 0;
+		while (data->s_split[i])
+		{
+			free(data->s_split[i]);
+			i++;
+		}
+		free(data->s_split);
+		free(data->i_split);
+		return (0);
+	}
+	return (1);
 }
 
 void	checker(t_data *data, int c, char **v)
@@ -85,15 +96,14 @@ void	checker(t_data *data, int c, char **v)
 	{
 		join = ft_strjoin(ft_strjoin(join, v[i++]), " ");
 		if (!join)
-			exit(1);
+			exit(0);
 	}
 	data->s_split = ft_split(join, ' ', &(data->len));
-	data->i_split = malloc(sizeof(long) * i);
+	data->i_split = malloc(sizeof(long) * data->len);
 	if (!data->i_split)
 		put_error("", data);
 	check_numbers(data);
 	i = 0;
 	if (check_duplicate(data) == 0)
 		put_error("Error\n", data);
-	is_sorted(data);
 }

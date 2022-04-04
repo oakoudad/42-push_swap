@@ -6,7 +6,7 @@
 /*   By: oakoudad <oakoudad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 10:40:55 by oakoudad          #+#    #+#             */
-/*   Updated: 2022/04/02 17:46:46 by oakoudad         ###   ########.fr       */
+/*   Updated: 2022/04/02 21:07:15 by oakoudad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ char	**ft_split(char *s, char c, int *len);
 char	*ft_strjoin(char *s1, char const *s2);
 size_t	ft_strlen(const char	*s);
 void	ft_putstr(char *str);
+int		is_sorted(t_data *data);
 int		valid_str(char *str);
 int		check_duplicate(t_data *data);
 long	ft_atoi(const char *str);
