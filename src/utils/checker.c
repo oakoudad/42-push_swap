@@ -6,7 +6,7 @@
 /*   By: oakoudad <oakoudad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 11:38:34 by oakoudad          #+#    #+#             */
-/*   Updated: 2022/04/02 21:05:20 by oakoudad         ###   ########.fr       */
+/*   Updated: 2022/06/18 03:38:33 by oakoudad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,11 @@ void	checker(t_data *data, int c, char **v)
 	join = NULL;
 	while (i <= c - 1)
 	{
+		if (v[i][0] == '\0')
+		{
+			write(1, "Error\n", 6);
+			exit(0);
+		}
 		join = ft_strjoin(ft_strjoin(join, v[i++]), " ");
 		if (!join)
 			exit(0);
